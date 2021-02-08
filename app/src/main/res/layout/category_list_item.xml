@@ -6,7 +6,7 @@
     android:layout_height="150dp">
 
     <ImageView
-        android:id="@+id/catagoryImage"
+        android:id="@+id/categoryImage"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
@@ -19,7 +19,7 @@
         tools:srcCompat="@drawable/hatimage" />
 
     <TextView
-        android:id="@+id/catagoryName"
+        android:id="@+id/categoryName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
