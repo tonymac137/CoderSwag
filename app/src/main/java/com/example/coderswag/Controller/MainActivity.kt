@@ -7,6 +7,7 @@ package com.example.coderswag.Controller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.example.coderswag.Adapters.CategoryAdapter
 import com.example.coderswag.Model.Category
 import com.example.coderswag.R
@@ -26,18 +27,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-
         // Create the Adapter for the listView
         adapter = CategoryAdapter(this, DataService.categories)
-
-
         // Tell the listView who it needs to listen to
         binding.categoryListView.adapter = adapter
 
+        //Used with listView
+        /*binding.categoryListView.setOnItemClickListener { adapterView, view, i, l ->
+            val category = DataService.categories[i]
+            Toast.makeText(this, "You clicked on the ${category.title} cell", Toast.LENGTH_SHORT).show()*/
     }
-
-
-
 }
+
+
+
