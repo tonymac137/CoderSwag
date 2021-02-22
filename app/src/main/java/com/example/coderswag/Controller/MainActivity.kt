@@ -4,6 +4,7 @@ package com.example.coderswag.Controller
 // Udemy
 // Started 07/02/2021
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,8 +25,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         // Create the Adapter for the listView
-        adapter = CategoryRecycleAdapter(this, DataService.categories)
+        adapter = CategoryRecycleAdapter(this, DataService.categories) { category ->
+            val productIntent = Intent(this, ProductsActivity::class.java )
+            startActivity(productIntent)
+        }
         // Tell the listView who it needs to listen to
         binding.categoryListView.adapter = adapter
 

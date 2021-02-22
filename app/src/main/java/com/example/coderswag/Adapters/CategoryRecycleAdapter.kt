@@ -11,7 +11,11 @@ import com.example.coderswag.Model.Category
 import com.example.coderswag.R
 
 
-class CategoryRecycleAdapter (val context: Context, val categories: List<Category>): RecyclerView.Adapter<CategoryRecycleAdapter.Holder>() {
+class CategoryRecycleAdapter(
+    val context: Context,
+    val categories: List<Category>,
+    param: (Any) -> Unit
+): RecyclerView.Adapter<CategoryRecycleAdapter.Holder>() {
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bindCategory(categories[position], context)
