@@ -5,6 +5,7 @@ package com.example.coderswag.Controller
 // Started 07/02/2021
 
 import android.content.Intent
+import android.nfc.cardemulation.CardEmulation.EXTRA_CATEGORY
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,9 +27,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Create the Adapter for the listView
         adapter = CategoryRecycleAdapter(this, DataService.categories) { category ->
             val productIntent = Intent(this, ProductsActivity::class.java )
+            productIntent.putExtra(EXTRA_CATEGORY, category.title)
             startActivity(productIntent)
         }
         // Tell the listView who it needs to listen to
@@ -42,6 +43,8 @@ class MainActivity : AppCompatActivity() {
         /*binding.categoryListView.setOnItemClickListener { adapterView, view, i, l ->
             val category = DataService.categories[i]
             Toast.makeText(this, "You clicked on the ${category.title} cell", Toast.LENGTH_SHORT).show()*/
+
+
     }
 }
 
